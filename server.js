@@ -18,8 +18,8 @@ app.use(bodyParser.json());
 // from a cloud data store
 const mockEvents = {
     events: [
-        { title: 'an event', id: 1, description: 'something really cool' },
-        { title: 'another event', id: 2, description: 'something even cooler' }
+        { title: 'an event', id: 1, description: 'something really cool', location: 'super early in la' },
+        { title: 'another event', id: 2, description: 'something even cooler', location: 'super early in la' }
     ]
 };
 
@@ -79,6 +79,7 @@ app.post('/event', (req, res) => {
     const ev = { 
         title: req.body.title, 
         description: req.body.description,
+        location: req.body.location,
         id : mockEvents.events.length + 1
      }
     // this will create the Events collection if it does not exist
